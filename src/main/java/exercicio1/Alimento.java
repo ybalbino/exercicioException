@@ -4,31 +4,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Alimento {
+
+    //Atributos
     private String tipoAlimento;
-    private double quantidadeDouble;
+    private double quantidaDouble;
     private int quantidadeInteiro;
-    private String nomeAlimento;
+    private String nomeDoAlimento;
 
     List<Alimento> verduras = new ArrayList<>();
     List<Alimento> legumes = new ArrayList<>();
     List<Alimento> graos = new ArrayList<>();
     List<Alimento> outros = new ArrayList<>();
 
-    public Alimento(String tipoAlimento, double quantidadeDouble, String nomeAlimento) {
+    //Construtores
+
+
+    public Alimento(String tipoAlimento, double quantidaDouble, String nomeDoAlimento) {
         this.tipoAlimento = tipoAlimento;
-        this.quantidadeDouble = quantidadeDouble;
-        this.nomeAlimento = nomeAlimento;
+        this.quantidaDouble = quantidaDouble;
+        this.nomeDoAlimento = nomeDoAlimento;
     }
 
-    public Alimento(String tipoAlimento, int quantidadeInteiro, String nomeAlimento) {
+    public Alimento(String tipoAlimento, int quantidadeInteiro, String nomeDoAlimento) {
         this.tipoAlimento = tipoAlimento;
         this.quantidadeInteiro = quantidadeInteiro;
-        this.nomeAlimento = nomeAlimento;
+        this.nomeDoAlimento = nomeDoAlimento;
     }
 
     public Alimento() {
     }
 
+    //Getters and Setters
     public String getTipoAlimento() {
         return tipoAlimento;
     }
@@ -37,12 +43,12 @@ public class Alimento {
         this.tipoAlimento = tipoAlimento;
     }
 
-    public double getQuantidadeDouble() {
-        return quantidadeDouble;
+    public double getQuantidaDouble() {
+        return quantidaDouble;
     }
 
-    public void setQuantidadeDouble(double quantidadeDouble) {
-        this.quantidadeDouble = quantidadeDouble;
+    public void setQuantidaDouble(double quantidaDouble) {
+        this.quantidaDouble = quantidaDouble;
     }
 
     public int getQuantidadeInteiro() {
@@ -53,15 +59,15 @@ public class Alimento {
         this.quantidadeInteiro = quantidadeInteiro;
     }
 
-    public String getNomeAlimento() {
-        return nomeAlimento;
+    public String getNomeDoAlimento() {
+        return nomeDoAlimento;
     }
 
-    public void setNomeAlimento(String nomeAlimento) {
-        this.nomeAlimento = nomeAlimento;
+    public void setNomeDoAlimento(String nomeDoAlimento) {
+        this.nomeDoAlimento = nomeDoAlimento;
     }
 
-    //Getters das Listas
+    //Getters das listas
 
     public List<Alimento> getVerduras() {
         return verduras;
@@ -79,36 +85,39 @@ public class Alimento {
         return outros;
     }
 
-    //Metodos que set nas listas de forma separada
-    public void setListaSeparadas(List<Alimento> alimentos){
-        for (Alimento alimento: alimentos) {
+    //método que da um set nas lista de forma separada
+    public void setListasSeparadas(List<Alimento> alimentos){
+
+        for (Alimento alimento:alimentos){
             if (alimento.getTipoAlimento().equalsIgnoreCase("verdura")){
                 verduras.add(alimento);
-            } else if (alimento.getTipoAlimento().equalsIgnoreCase("legumes")) {
+            }else if (alimento.getTipoAlimento().equalsIgnoreCase("legumes")){
                 legumes.add(alimento);
-            } else if (alimento.getTipoAlimento().equalsIgnoreCase("graos")) {
+            }else if (alimento.getTipoAlimento().equalsIgnoreCase("grãos")){
                 graos.add(alimento);
-            } else if (alimento.getTipoAlimento().equalsIgnoreCase("outros")) {
+            }else if (alimento.getTipoAlimento().equalsIgnoreCase("outros")){
                 outros.add(alimento);
             }
         }
     }
 
-    //Mostra as infos em decimais (verduras, grãos)
+    //método que mostra as informações em decimal(Verduras e grãos)
     public void mostraInfoEmDecimal(List<Alimento> alimentos){
-        for (Alimento alimento: alimentos){
+        for (Alimento alimento:alimentos){
             System.out.println("Tipo: " + alimento.getTipoAlimento());
-            System.out.println("Nome: " + alimento.getNomeAlimento());
-            System.out.println("Quantidade: " + alimento.getQuantidadeDouble());
+            System.out.println("Nome: " + alimento.getNomeDoAlimento());
+            System.out.println("Quantidade: " + alimento.getQuantidaDouble());
         }
     }
 
-    //Mostra as infos em unidades inteiras (Legumes, outros)
+    //método que mostra as informações em unidades inteira(Legumes e outros)
     public void mostraInfoEmUnidadesInteiras(List<Alimento> alimentos){
-        for (Alimento alimento: alimentos){
+
+        for (Alimento alimento:alimentos){
             System.out.println("Tipo: " + alimento.getTipoAlimento());
-            System.out.println("Nome: " + alimento.getNomeAlimento());
-            System.out.println("Quantidade: " + alimento.getQuantidadeInteiro());
+            System.out.println("Nome: " + alimento.getNomeDoAlimento());
+            System.out.println("Quantidade: " + alimento.getQuantidadeInteiro() );
         }
+
     }
 }

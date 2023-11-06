@@ -3,103 +3,106 @@ package exercicio1;
 import java.util.Scanner;
 
 public class ZupFood {
+
+    //Atributos
     private Menu menu;
-    private Scanner sc;
+    private Scanner entrada;
     private Alimento alimento;
     private String nomeUsuario;
     private boolean continuar;
 
     public ZupFood(){
         menu = new Menu();
-        sc = new Scanner(System.in);
+        entrada = new Scanner(System.in);
     }
 
     public void setContinuar(){
         this.continuar = true;
     }
 
-    //Metodo de compra
-    public void compar(){
+    //método de compra
+    public void comprar(){
 
         System.out.println("Qual é o seu nome? ");
-        nomeUsuario = sc.nextLine();
-        System.out.println("Bem vindo(a) a ZupFood " + nomeUsuario);
+        nomeUsuario = entrada.nextLine();
+        System.out.println("Bem vinde ao nosso ZupFood " + nomeUsuario);
 
+        String tipo = "";
+        String nome = "";
 
         while (true){
+
             alimento = new Alimento();
             setContinuar();
 
             do {
-               adicionaTipoAlimento();
+                addTipoDeAlimento();
             }while (continuar);
             setContinuar();
 
             do {
-                adicionaNomeAlimento();
+                addNomeDoAlimento();
             }while (continuar);
             setContinuar();
 
             do {
                 if (alimento.getTipoAlimento().equalsIgnoreCase("verdura") ||
-                alimento.getTipoAlimento().equalsIgnoreCase("grãos")){
-                    adicionaGramasAlimento();
-                } else if (alimento.getTipoAlimento().equalsIgnoreCase("legumes") ||
-                        alimento.getTipoAlimento().equalsIgnoreCase("outros")) {
-                    adicionaUnidadesAlimento();
+                        alimento.getTipoAlimento().equalsIgnoreCase("grãos")){
+                    addGramasDoAlimento();
+                }else if (alimento.getTipoAlimento().equalsIgnoreCase("legumes") ||
+                        alimento.getTipoAlimento().equalsIgnoreCase("outros")){
+                    addUnidadeDoAlimento();
                 }
             }while (continuar);
             menu.adicionar(alimento);
-            System.out.println("Deseja adicionar mais algum item ? 1 - sim 2 - não");
-            if (sc.nextInt() == 2) break;
+            System.out.println("Você deseja adicionar mais algum item? 1-sim 2-não");
+            if (entrada.nextInt() == 2) break;
 
         }
         menu.mostrarCarrinho();
 
     }
-
-    //metodo adiciona alimento
-    public void adicionaTipoAlimento(){
-        try {
-            System.out.println("Qual é o tipo de alimento deseja adicionar? ");
+    //método que adiciona um alimento na compra
+    public void addTipoDeAlimento(){
+        try{
+            System.out.println("Qual é o tipo de alimento que deseja adicionar? ");
             menu.getOpcoesTipoAlimento();
-            alimento.setTipoAlimento(menu.verificarTipoAlimento(sc.nextLine()));
+            alimento.setTipoAlimento(menu.verificarTipoAlimento(entrada.nextLine()));
             continuar = false;
-        } catch (IllegalArgumentException e){
-            System.out.println(e.getMessage());
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getCause());
         }
     }
 
-    //metodo que adiciona o nome do alimento
-    public void adicionaNomeAlimento(){
-        try {
-            System.out.println("Qual é o nome do Alimento: ");
-            alimento.setNomeAlimento(sc.nextLine());
-            menu.vericaNome(alimento.getNomeAlimento());
+    //método que adiciona o nome de um alimento na compra
+    public void addNomeDoAlimento(){
+        try{
+            System.out.println("Qual é o nome do alimento? ");
+            alimento.setNomeDoAlimento(entrada.nextLine());
+            menu.verificaNome(alimento.getNomeDoAlimento());
+            continuar = false;
         }catch (UnsupportedOperationException e){
             System.out.println(e.getMessage());
         }
     }
 
-    //Adiciona as gramas de uma alimento (verduras ou grãos)
-    public void adicionaGramasAlimento(){
-        try {
-            System.out.println("Quantas gramas de " + alimento.getNomeAlimento() +
-                    "deseja adicionar ?");
-            String valorGrama = sc.next();
-            alimento.setQuantidadeDouble(menu.verificarGramas(valorGrama));
+    //método que adiciona as gramas de um alimento(Verdura ou  Grãos)
+    public void addGramasDoAlimento(){
+        try{
+            System.out.println("Quantas gramas de " + alimento.getNomeDoAlimento() + " deseja adicionar?");
+            String valorGrama = entrada.next();
+            alimento.setQuantidaDouble(menu.verificarGramas(valorGrama));
             continuar = false;
         }catch (NumberFormatException e){
             System.out.println(e.getMessage());
         }
     }
 
-    //Adiciona as unidades de um alimento (legumes e outros)
-    public void adicionaUnidadesAlimento(){
-        try {
-            System.out.println("Qual a quantidade e " + alimento.getNomeAlimento() +
-                    "dejeja adicionar? ");
-            String valorUnidade = sc.next();
+    //método que adiciona as unidades de um alimento(Legumes e Outros)
+    public void addUnidadeDoAlimento(){
+        try{
+            System.out.println("Qual a quantidade de " + alimento.getNomeDoAlimento() + " deseja adicionar?");
+            String valorUnidade = entrada.next();
             alimento.setQuantidadeInteiro(menu.verificarUnidades(valorUnidade));
             continuar = false;
         }catch (NumberFormatException e){
