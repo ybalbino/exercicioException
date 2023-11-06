@@ -1,0 +1,15 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(êõ»ûÿÿÿÿ8¸¼š¬º1
+w
+java:S1450	"ZRemove the "nomeUsuario" field and declare it as a local variable in the relevant methods.(«òÂÂ8»¼š¬º1
+G	java:S106"+Replace this use of System.out by a logger.(±Ñº©8¾¼š¬º1
+G	java:S106"+Replace this use of System.out by a logger.(Ì µé8¿¼š¬º1
+L	java:S1065"+Replace this use of System.out by a logger.(‰ğğüúÿÿÿÿ8¿¼š¬º1
+L	java:S106@"+Replace this use of System.out by a logger.(Ä¿æ˜ıÿÿÿÿ8Â¼š¬º1
+L	java:S106E"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8Â¼š¬º1
+L	java:S106L"+Replace this use of System.out by a logger.(é¢åáøÿÿÿÿ8Â¼š¬º1
+L	java:S106P"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8Ã¼š¬º1
+L	java:S106W"+Replace this use of System.out by a logger.(òë˜éùÿÿÿÿ8Ã¼š¬º1
+L	java:S106]"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8Ä¼š¬º1
+L	java:S106d"+Replace this use of System.out by a logger.(úëÃúÿÿÿÿ8Ä¼š¬º1
+L	java:S106j"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8Å¼š¬º1
